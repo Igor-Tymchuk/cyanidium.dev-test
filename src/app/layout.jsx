@@ -1,13 +1,13 @@
 import { Raleway, Manrope } from "next/font/google";
 import "../styles/globals.css";
 
-const geistSans = Raleway({
-  variable: "--font-geist-sans",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
 });
 
-const geistMono = Manrope({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -18,12 +18,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className={`${raleway.variable} ${manrope.variable}`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
